@@ -5,6 +5,7 @@
   "scripts": {
     "deploy": "wrangler deploy --assets ."
   },
+  {"compatibility_date":"2026-05-31"},
   
   "keywords": ["portfolio", "linux", "developer"],
   "author": "Suyash Namdeo",
