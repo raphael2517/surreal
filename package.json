@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Suyash Namdeo's personal portfolio - Linux-first developer",
   "scripts": {
-    "dev": "npx serve -l 3000",
-    "preview": "npx serve -l 3000"
+    "deploy": "wrangler deploy --assets"
   },
+  
   "keywords": ["portfolio", "linux", "developer"],
   "author": "Suyash Namdeo",
   "license": "MIT"
