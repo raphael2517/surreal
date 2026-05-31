@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Suyash Namdeo's personal portfolio - Linux-first developer",
   "scripts": {
-    "deploy": "wrangler deploy --assets"
+    "deploy": "wrangler deploy --assets ."
   },
   
   "keywords": ["portfolio", "linux", "developer"],
