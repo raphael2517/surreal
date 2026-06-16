@@ -114,7 +114,7 @@
       ['Languages','C# · GDScript · Python · Bash'],
       ['Uptime',   'Still learning, still building...'],
       null,
-      ['GitHub',   '<a href="https://github.com/suyashnamdeo" target="_blank" rel="noopener" style="color:var(--accent-cyan);text-decoration:underline">github.com/suyashnamdeo</a>'],
+      ['GitHub',   '<a href="https://github.com/raphael2517" target="_blank" rel="noopener" style="color:var(--accent-cyan);text-decoration:underline">github.com/raphael2517</a>'],
       null,
     ];
 
