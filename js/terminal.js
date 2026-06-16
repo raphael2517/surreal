@@ -72,7 +72,7 @@
       if (i >= lines.length) {
         state.typing = false;
         input.disabled = false;
-        input.focus();
+        input.focus({ preventScroll: true });
         if (done) done();
         return;
       }
@@ -228,10 +228,10 @@
         [null],
         ['<span style="color:var(--accent-cyan);font-weight:700">── Projects ──</span>', '', 0],
         [null],
-        projLine('01', 'Hyprland Dotfiles',         'Arch setup from scratch', '#ff2a6d'),
-        projLine('02', 'Narrative Game Prototype',   'Godot 4 story game', '#00e5ff'),
-        projLine('03', 'Bash Toolkit',               'Shell scripts', '#b44bff'),
-        projLine('04', 'Consciousness Notes',        'Philosophy repo', '#ffa640'),
+        projLine('01', 'Hyprland Dotfiles',         'Arch setup from scratch', '#87B5BE'),
+        projLine('02', 'Narrative Game Prototype',   'Godot 4 story game', '#9B86B5'),
+        projLine('03', 'Bash Toolkit',               'Shell scripts', '#E5D8CF'),
+        projLine('04', 'Consciousness Notes',        'Philosophy repo', '#7ec8a4'),
         [null],
         [`<span style="color:var(--term-comment)"># </span><a href="https://github.com/suyashnamdeo" target="_blank" rel="noopener" style="color:var(--accent-cyan)">github.com/suyashnamdeo</a>`, '', 0],
         [null],
@@ -440,7 +440,7 @@
       ['<span style="color:var(--term-comment)">Welcome. Type help to get started.</span>', '', 25],
       [null, '', 15],
     ];
-    typeLines(intro, 20);
+    typeLines(intro, 20, () => COMMANDS.neofetch());
   }
 
   function init() {
