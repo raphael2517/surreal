@@ -510,11 +510,12 @@ input, textarea { font-family: inherit; }
   display: flex;
   flex-direction: column;
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-size: clamp(3.1rem, 7vw, 6.4rem);
   font-weight: 800;
   line-height: 0.9;
   letter-spacing: -0.04em;
   margin-bottom: var(--space-3);
+  max-width: 100%;
 }
 .hero-name-line {
   display: block;
@@ -1108,7 +1109,7 @@ input, textarea { font-family: inherit; }
 }
 
 /* HERO NAME GLITCH TRANSITION */
-.hero-name-line { position: relative; display: block; }
+.hero-name-line { position: relative; display: block; max-width: 100%; overflow-wrap: break-word; word-break: break-word; }
 .hero-name-line.hero-name-glitch::before,
 .hero-name-line.hero-name-glitch::after {
   content: attr(data-text);
