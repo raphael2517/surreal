@@ -78,6 +78,7 @@
     const ctx = canvas.getContext('2d');
     let W, H, particles;
     const COUNT = window.innerWidth < 768 ? 40 : 80;
+    const baseHue = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hue')) || 338;
 
     function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
     function makeParticle() {
@@ -87,7 +88,7 @@
         vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
         a: Math.random() * 0.6 + 0.1,
         da: (Math.random() - 0.5) * 0.003,
-        hue: Math.random() > 0.6 ? 340 : (Math.random() > 0.5 ? 185 : 280),
+        hue: Math.random() > 0.6 ? baseHue : (Math.random() > 0.5 ? baseHue - 22 : baseHue + 26),
       };
     }
     function init() { resize(); particles = Array.from({ length: COUNT }, makeParticle); }
@@ -112,7 +113,7 @@
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(255, 42, 109, ${(1 - dist / 100) * 0.04})`;
+            ctx.strokeStyle = `hsla(${baseHue}, 100%, 55%, ${(1 - dist / 100) * 0.05})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -386,6 +387,64 @@
     }
   }
 
+  /* HERO NAME ROTATION — Suyash / Raphael */
+  function initHeroNameRotation() {
+    if (prefersReducedMotion) return;
+    const line1 = qs('#heroNameLine1');
+    const line2 = qs('#heroNameLine2');
+    if (!line1 || !line2) return;
+    const identities = [
+      ['SUYASH', 'NAMDEO'],
+      ['RAPHAEL', 'REGENESIS'],
+    ];
+    let idx = 0;
+
+    function swap() {
+      idx = (idx + 1) % identities.length;
+      const [a, b] = identities[idx];
+      line1.classList.add('hero-name-glitch');
+      line2.classList.add('hero-name-glitch');
+      setTimeout(() => {
+        line1.textContent = a; line1.dataset.text = a;
+        line2.textContent = b; line2.dataset.text = b;
+      }, 110);
+      setTimeout(() => {
+        line1.classList.remove('hero-name-glitch');
+        line2.classList.remove('hero-name-glitch');
+      }, 280);
+    }
+    setInterval(swap, 4200);
+  }
+
+  /* CRT GLITCH TRIGGER */
+  function initCRTGlitch() {
+    if (prefersReducedMotion) return;
+    const overlay = qs('#crtOverlay');
+    const barsContainer = qs('#glitchBars');
+    if (!overlay || !barsContainer) return;
+
+    function triggerGlitch() {
+      overlay.classList.remove('is-glitching');
+      void overlay.offsetWidth; // restart animation
+      barsContainer.innerHTML = '';
+      const barCount = 2 + Math.floor(Math.random() * 3);
+      for (let i = 0; i < barCount; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'glitch-bar';
+        bar.style.top = Math.random() * 100 + '%';
+        bar.style.animationDelay = (Math.random() * 0.06) + 's';
+        barsContainer.appendChild(bar);
+      }
+      overlay.classList.add('is-glitching');
+      setTimeout(() => overlay.classList.remove('is-glitching'), 260);
+      scheduleNext();
+    }
+    function scheduleNext() {
+      setTimeout(triggerGlitch, 3500 + Math.random() * 5500);
+    }
+    scheduleNext();
+  }
+
   function init() {
     initScrollProgress();
     initNav();
@@ -401,6 +460,8 @@
     initGSAP();
     initTerminalFocus();
     initTaglineRotation();
+    initHeroNameRotation();
+    initCRTGlitch();
     initAnchorScroll();
     initKeyboardShortcuts();
     initThemeToggle();
