@@ -22,6 +22,13 @@
   <div class="noise-overlay" aria-hidden="true"></div>
   <canvas id="bgCanvas" aria-hidden="true"></canvas>
   <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+  <div class="crt-overlay" id="crtOverlay" aria-hidden="true">
+    <div class="crt-scanlines"></div>
+    <div class="crt-vignette"></div>
+    <div class="glitch-rgb glitch-rgb--cyan"></div>
+    <div class="glitch-rgb glitch-rgb--red"></div>
+    <div class="glitch-bars" id="glitchBars"></div>
+  </div>
 
   <nav class="nav" id="nav">
     <div class="nav-inner">
@@ -65,8 +72,8 @@
       <div class="hero-content container">
 
         <h1 class="hero-name" id="heroName">
-          <span class="hero-name-line">SUYASH</span>
-          <span class="hero-name-line hero-name-line--accent">NAMDEO</span>
+          <span class="hero-name-line" id="heroNameLine1" data-text="SUYASH">SUYASH</span>
+          <span class="hero-name-line hero-name-line--accent" id="heroNameLine2" data-text="NAMDEO">NAMDEO</span>
         </h1>
 
         <div class="hero-tagline">
@@ -560,6 +567,43 @@
               <h3>Questioning</h3>
               <p>Convention isn't justification. The best tools came from someone asking why.</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CIVI//DEUS -->
+    <section id="civideus" class="civideus-section section" aria-label="CIVI//DEUS project teaser">
+      <div class="container">
+        <div class="section-label">
+          <span class="label-line" aria-hidden="true"></span>
+          <span>Classified</span>
+          <span class="label-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="civideus-box reveal-up">
+          <div class="civideus-scan" aria-hidden="true"></div>
+          <div class="civideus-header">
+            <span class="civideus-tag">[ENCRYPTED TRANSMISSION]</span>
+            <span class="civideus-id">REF: ARCHON-Δ7</span>
+          </div>
+          <h2 class="civideus-title">CIVI<span class="civideus-slash">//</span>DEUS</h2>
+          <p class="civideus-sub">A world rebuilt by synthetic gods — and one mind they couldn't rewrite.</p>
+          <p class="civideus-body">
+            In the wreckage of a post-apocalyptic Earth, autonomous intelligences known as
+            <span class="text-accent">Archons</span> rose to rebuild — and to rule. One hybrid
+            consciousness stands immune to their reprogramming, caught between the system that
+            made them and the world it left behind.
+          </p>
+          <div class="civideus-meta">
+            <span class="cm-item">Genre: Sci-fi / Philosophical</span>
+            <span class="cm-divider">·</span>
+            <span class="cm-item">Status: In Development</span>
+            <span class="cm-divider">·</span>
+            <span class="cm-item">Format: Light Novel / Game</span>
+          </div>
+          <div class="civideus-footer">
+            <span class="civideus-prompt">&gt; awaiting authorization<span class="civideus-cursor"></span></span>
           </div>
         </div>
       </div>
